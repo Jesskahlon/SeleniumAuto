@@ -24,7 +24,8 @@ public class HomePage  extends Utils {
     public void userClickOnBuildYourOwnComputer() {
         //Build your own Comp button
         clickButton(_buttonBuildYourOwnComputer);
-    }
+    }//
+
     public void userShouldBeAbleToSeeThePriceAccordingToSelectedCurrency() {
         // click on currency button
         Select Currency = new Select(driver.findElement(_dropDownButtonCurrency));
@@ -62,5 +63,15 @@ public class HomePage  extends Utils {
        // getText(By.className("poll-total-votes"));
         presenceOfElement(By.className("poll-total-votes"),10);
     }
+    public void userShouldBeAbleToAddProductInWishList(){
+        //Select Mobile = new Select(driver.findElement(By.xpath("//h2/a[@href=\"/htc-one-m8-android-l-50-lollipop\"]")));
+       // Mobile.selectByValue("    onclick=\"return AjaxCart.addproducttocart_catalog(\"/addproducttocart/catalog/18/2/1\"),!1\"\n");
+        clickButton(By.cssSelector("return AjaxCart.addproducttocart_catalog(\"/addproducttocart/catalog/18/2/1\"),!1\""));
+        String expectedMessage = "The product has been added to your wishlist";
+        String actualMessage = driver.findElement(By.className("bar-notification success")).getText();
+        //assert point to compare actual and expected
+        Assert.assertEquals(actualMessage,expectedMessage, "The product is failed tobe added in wishlist");
 
+    }
+//"return AjaxCart.addproducttocart_catalog("/addproducttocart/catalog/18/2/1"),!1"
 }
