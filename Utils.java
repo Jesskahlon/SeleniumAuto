@@ -15,16 +15,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.xml.xpath.XPath;
+
 public class Utils extends BasePage {
 
-    public static void takeScreenShot(String a) throws Exception{
+    public static void takeScreenShot(String a){
 
-        TakesScreenshot screenshot = ((TakesScreenshot)driver);
+        TakesScreenshot scrnShot = ((TakesScreenshot)driver);
 
 
-        File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+        File srcFile = scrnShot.getScreenshotAs(OutputType.FILE);
         try{
-            FileUtils.copyFile(srcFile, new File("screenShot\\"+a+randomDate()+".ping"));
+            FileUtils.copyFile(srcFile, new File( "/Users/jasvinderkaur/IdeaProjects/seleniumAutomation01/screenShot"+a+randomDate()+".ping"));
 
         }catch(IOException e){
             e.printStackTrace();
@@ -56,8 +58,13 @@ public class Utils extends BasePage {
 
     public static String getText(By by) {
         return driver.findElement(by).getText();
-    }
 
+    }
+    // public static void textToBe ( int time, By by, String value){
+    //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+    //        wait.until(ExpectedConditions.textToBe(by, value));
+    //    }
+////        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     public static void presenceOfElement(By by, int time) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));

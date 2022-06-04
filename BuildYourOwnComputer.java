@@ -31,7 +31,7 @@ public class BuildYourOwnComputer extends Utils {
         //Add to Cart
         clickButton(By.xpath("//button[@id=\"add-to-cart-button-1\"]"));
         // confirmation Message that product been added to cart
-        String expectedMessage = "The product has been added to your shopping cart";
+        String expectedMessage = "The product has been added to your shopping cart";//has
         String actualMessage = driver.findElement(By.className("content")).getText();
         Assert.assertEquals(actualMessage, expectedMessage, "no item added in the cart");
 

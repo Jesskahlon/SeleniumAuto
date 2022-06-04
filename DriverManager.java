@@ -41,22 +41,17 @@ public class DriverManager extends Utils {
         }
         //System.setProperty("WebDriver.chrome.driver", "src/test/java/driver/chromedrive        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));r ");
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.get("https://demo.nopcommerce.com/");
     }
 
-    public void closeTheBrowser(ITestResult result)  {
+    public void closeTheBrowser()  {
 
-        if(!result.isSuccess()){
-            try {
-                takeScreenShot(result.getName());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+
+
 
         driver.quit();
     }
-
 
 
 

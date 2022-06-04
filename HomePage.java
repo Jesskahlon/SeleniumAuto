@@ -59,8 +59,8 @@ public class HomePage  extends Utils {
         //click on vote
         clickButton(By.id("vote-poll-1"));
         //Total Votes Text
-        getText(By.className("poll-total-votes"));
-
+       // getText(By.className("poll-total-votes"));
+        presenceOfElement(By.className("poll-total-votes"),10);
     }
 
 }
