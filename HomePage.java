@@ -2,11 +2,17 @@ package org.example;
 
 import org.example.Utils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 public class HomePage  extends Utils {
+    LoadProp loadprop = new LoadProp();
+
     private By _buttonRegister = By.className("ico-register");
     private By _buttonBuildYourOwnComputer = By.xpath("//h2/a[@href=\"/build-your-own-computer\"]");
     private By _dropDownButtonCurrency = By.name("customerCurrency");
@@ -14,8 +20,8 @@ public class HomePage  extends Utils {
     //select[@name="customerCurrency"]
     ////div/span[@class="price actual-price"][1]
     private By _currencyInEuro = By.xpath("//div/span[@class=\"price actual-price\"][2]");
-    public void verifyUserIsOnHomePage(){
-        driverWaitUntilUrlTOBe(30, "https://demo.nopcommerce.com/");
+     public void verifyUserIsOnHomePage(){
+        driverWaitUntilUrlTOBe(30, loadprop.getProperty("url"));
     }
       // Register Button
     public void userClickOnRegisterButton() {
@@ -73,5 +79,20 @@ public class HomePage  extends Utils {
         Assert.assertEquals(actualMessage,expectedMessage, "The product is failed tobe added in wishlist");
 
     }
-//"return AjaxCart.addproducttocart_catalog("/addproducttocart/catalog/18/2/1"),!1"
+     public void getProductTitles(){
+         driver.get("https://demo.nopcommerce.com/");
+         List<WebElement> productTitles = driver.findElements(By.xpath("//div[@class=\"product-grid home-page-product-grid\"]//h2"));
+         System.out.println(productTitles.size());
+         List<String> expectedProductTitles = Arrays.asList();//
+         //List<String> act
+         for(WebElement e: productTitles){
+             System.out.println(e.getText());
+         }
+
+
+
+    }
+//// public void verifyHomePageContents(){
+//       // Assert.assertEquals(gettext(By.className("")));//Register
+// public void
 }

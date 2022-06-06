@@ -39,9 +39,10 @@ public class DriverManager extends Utils {
             System.out.println("Either ur browser name is wrong or not provided" + browserName);
 
         }
-        //System.setProperty("WebDriver.chrome.driver", "src/test/java/driver/chromedrive        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));r ");
+        //System.setProperty("WebDriver.chrome.driver", "src/test/java/driver/chromedriver.exe"0        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));r ");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
         driver.get("https://demo.nopcommerce.com/");
     }
 

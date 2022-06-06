@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class RegistrationPage extends Utils {
     private By _radioButtonFemale = By.className("female");
-    private By _textBoxFirstName = By.xpath("//input[@name='FirstName']");
     private By _textBoxLastName = By.xpath("//input[@name='LastName']");
     private By _selectDropDownButtonBirthDay = By.name("DateOfBirthDay");
     private By _selectDropDownButtonBirthMonth = By.name("DateOfBirthMonth");
@@ -15,15 +14,13 @@ public class RegistrationPage extends Utils {
     private By _textBoxPassword = By.name("Password");
     private By _textConfirmPassword = By.id("ConfirmPassword");
     private By _registerButton = By.name("register-button");
-
+    LoadProp loadprop = new LoadProp();
     public void verifyUserIsOnRegisterPage() {
         driverWaitUntilUrlTOBe(30, "https://demo.nopcommerce.com/register?returnUrl=%2F");
     }
         public void userShouldBeAbleToRegisterSuccessfully(){
-
-            clickButton(_radioButtonFemale);
-            typeText(_textBoxFirstName, "Hello");
-            typeText(_textBoxLastName, "Hi");
+         //firstname   typeText(_)
+            typeText(_textBoxLastName, loadprop.getProperty("LastName"));
             Select birthday = new Select(driver.findElement(_selectDropDownButtonBirthDay));
             birthday.selectByVisibleText("5");
             Select birthMonth = new Select(driver.findElement(_selectDropDownButtonBirthMonth));
