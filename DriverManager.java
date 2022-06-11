@@ -41,6 +41,7 @@ public class DriverManager extends Utils {
                 caps.setCapability("browser", "Chrome");
                 caps.setCapability("browser_version", "latest");
                 caps.setCapability("browserstack.selenium_version", "4.1.0");
+
             } else if (browserName.equalsIgnoreCase("firefox")){
                 caps.setCapability("os", "Windows");
                 caps.setCapability("os_version", "10");
