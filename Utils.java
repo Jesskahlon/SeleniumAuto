@@ -26,7 +26,7 @@ public class Utils extends BasePage {
 
         File srcFile = scrnShot.getScreenshotAs(OutputType.FILE);
         try{
-            FileUtils.copyFile(srcFile, new File( "/Users/jasvinderkaur/IdeaProjects/seleniumAutomation01/screenShot"+a+randomDate()+".ping"));
+            FileUtils.copyFile(srcFile, new File( "ScreenShot"+a+randomDate()+".png"));
 
         }catch(IOException e){
             e.printStackTrace();
@@ -125,5 +125,5 @@ public class Utils extends BasePage {
 //        driver.findElement(by).t
 //        }
 
-    // All reusable methoed
+    // All reusable method
 }

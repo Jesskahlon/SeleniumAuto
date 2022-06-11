@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class RegistrationPage extends Utils {
     private By _radioButtonFemale = By.className("female");
+    private By _textBoxFirstName =  By.id("FirstName");
     private By _textBoxLastName = By.xpath("//input[@name='LastName']");
     private By _selectDropDownButtonBirthDay = By.name("DateOfBirthDay");
     private By _selectDropDownButtonBirthMonth = By.name("DateOfBirthMonth");
@@ -19,17 +20,18 @@ public class RegistrationPage extends Utils {
         driverWaitUntilUrlTOBe(30, "https://demo.nopcommerce.com/register?returnUrl=%2F");
     }
         public void userShouldBeAbleToRegisterSuccessfully(){
-         //firstname   typeText(_)
+            clickButton(_radioButtonFemale);
+            typeText(_textBoxFirstName, loadprop.getProperty("FirstName"));
             typeText(_textBoxLastName, loadprop.getProperty("LastName"));
             Select birthday = new Select(driver.findElement(_selectDropDownButtonBirthDay));
-            birthday.selectByVisibleText("5");
+            birthday.selectByVisibleText(loadprop.getProperty("BirthDate"));
             Select birthMonth = new Select(driver.findElement(_selectDropDownButtonBirthMonth));
-            birthMonth.selectByVisibleText("June");
+            birthMonth.selectByVisibleText(loadprop.getProperty("BirthMonth"));
             Select birthYear = new Select(driver.findElement(_selectDropDownButtonBirthYear));
-            birthYear.selectByValue("1983");
-            typeText(_textBoxEmail, "jk5983" + randomDate() + "@gmail.com");
-            typeText(_textBoxPassword, "hi44@44");
-            typeText(_textConfirmPassword, "hi44@44");
+            birthYear.selectByValue(loadprop.getProperty("BirthYear"));
+            typeText(_textBoxEmail, loadprop.getProperty("EmailPart1") + randomDate() + loadprop.getProperty("EmailPart"));
+            typeText(_textBoxPassword, loadprop.getProperty("EmailPassword"));
+            typeText(_textConfirmPassword, loadprop.getProperty("EmailPassword"));
             clickButton(_registerButton);
 
 
