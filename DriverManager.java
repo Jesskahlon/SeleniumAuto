@@ -36,6 +36,8 @@ public class DriverManager extends Utils {
         if(cloud) {
             System.out.println("running cloud");
             if (browserName.equalsIgnoreCase("chrome")) {
+                System.out.println("Browser is chrome");
+
                 caps.setCapability("os", "Windows");
                 caps.setCapability("os_version", "10");
                 caps.setCapability("browser", "Chrome");
@@ -43,6 +45,8 @@ public class DriverManager extends Utils {
                 caps.setCapability("browserstack.selenium_version", "4.1.0");
 
             } else if (browserName.equalsIgnoreCase("firefox")){
+                System.out.println("Browser is Firefox");
+
                 caps.setCapability("os", "Windows");
                 caps.setCapability("os_version", "10");
                 caps.setCapability("browser", "Firefox");
